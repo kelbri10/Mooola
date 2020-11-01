@@ -45,5 +45,20 @@
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <script src="index.js"></script>
+  <script>
+    //makes sure service worker exist in browser and are enabled 
+    if ("serviceWorker" in navigator) {
+      //when page is ready
+      window.addEventListener("load", () => {
+        //load file
+        navigator.serviceWorker.register("service-worker.js")
+          .then(reg => {
+            //report success!
+            console.log("We found your service worker file!", reg);
+          });
+      });
+    }
+  </script>
+  
 </body>
 </html>
